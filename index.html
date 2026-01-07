@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EVM Asset Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🌐 EVM Asset Scanner</h1>
+
+  <input
+    id="wallet"
+    placeholder="Enter EVM Address (0x...)"
+  />
+
+  <button onclick="scanWallet()">Scan Wallet</button>
+
+  <div id="loader" class="loader hidden"></div>
+  <div id="results"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
 
