@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Multi Assets Dashboard</title>
+  <title>Web3 Multi-Asset Viewer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>GitHub Pages is LIVE ✅</h1>
-  <p>This means deployment works.</p>
+  <div class="container">
+    <header>
+      <h1>Web3 Multi-Asset Viewer</h1>
+      <p class="subtitle">
+        Generate a normalized, chain-agnostic portfolio export for a single wallet.
+      </p>
+    </header>
+
+    <section class="panel">
+      <label for="wallet">Wallet address</label>
+      <input id="wallet" placeholder="0x... / base58 / bech32" />
+
+      <label for="scanTimestamp">Scan timestamp (UTC)</label>
+      <input id="scanTimestamp" placeholder="2026-02-03T10:30:00Z" />
+
+      <label for="apiKey">Moralis API key (EVM chains)</label>
+      <input id="apiKey" placeholder="Optional: X-API-Key" />
+      <p class="helper">
+        An API key is required to fetch ERC-20 balances. Without one, EVM chains
+        will be marked as inactive alongside non-EVM chains in the export.
+      </p>
+
+      <button id="scanButton" onclick="scanWallet()">Generate export</button>
+      <div id="loader" class="loader hidden"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Export JSON</h2>
+        <button class="secondary" onclick="copyExport()">Copy</button>
+      </div>
+      <pre id="results">{
+  "wallet": "",
+  "scan_timestamp": "",
+  "total_value_usd": 0,
+  "chains": [],
+  "assets": [],
+  "nfts": []
+}</pre>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
